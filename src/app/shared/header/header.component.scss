@@ -1,0 +1,36 @@
+
+.header{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 50;
+    .evaluation{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 240px;
+        height: 70px;
+        font-size: 18px;
+        color: #263238;
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.5;
+    }
+    .containerHeader{
+        display: flex;
+        justify-content: flex-end;
+        width: calc(100% - 240px);
+        background: #2a3e52;
+        app-circle-object{
+            display: flex;
+            align-items: center;
+        }
+        p{
+            display: flex;
+            align-items: center;
+            margin: 1em;
+            color: white;
+        }
+    }
+}

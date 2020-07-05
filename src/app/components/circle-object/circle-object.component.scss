@@ -1,0 +1,11 @@
+.container{
+    border-radius: 50%;
+    overflow: hidden;
+    height: 50px;
+    width: 50px;
+    .circle{
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+    }
+}
