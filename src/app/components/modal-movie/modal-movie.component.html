@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-title>Nueva Película</ion-title>
+  <ion-title>{{title}}</ion-title>
   <form [formGroup]="addMovie">
     
     <div>
@@ -24,7 +24,12 @@
       <div class="containerInput">
         <div>Fecha de Publicación</div>
  
-        <ion-datetime formControlName="publicationDate" displayFormat="MM DD YY" placeholder="Select Date"></ion-datetime>
+        <ion-datetime 
+          class="input"
+          formControlName="publicationDate" 
+          displayFormat="MM/DD/YYYY"
+          placeholder="Fecha de Publicación"
+        ></ion-datetime>
         
       </div>
       <div class="validation-errors">
@@ -41,9 +46,9 @@
     <div>
       <div class="containerInput">
         <div>Estado</div>
-        <ion-select 
+        <ion-select
+          class="input" 
           formControlName="state"
-          value="01"
           interface="popover">
           <ion-select-option value="01">Activado</ion-select-option>
           <ion-select-option value="02">Desactivado</ion-select-option>
@@ -60,7 +65,7 @@
       </div>
     </div>
     <div class="containerButton">
-      <ion-button (click)="createMovie()" [disabled]="!addMovie.valid">Guardar</ion-button>
+      <ion-button (click)="createMovie()" [disabled]="!addMovie.valid">{{buttonName}}</ion-button>
     </div>
   </form>
 </ion-content>

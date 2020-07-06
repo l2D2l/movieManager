@@ -23,18 +23,20 @@ export class MoviesComponent implements OnInit {
 
   async getMovies(){
     try{
-      await this.MovieService.getMovies()
-      .subscribe( (resp:Movie[])=>{
-        console.log("[MOVIES]",resp);
-        this.movies=resp;
-      })
+      await this.MovieService.getMovies().then(
+        (data:Movie[])=>{
+          console.log("[MOVIES]",data);
+          this.movies=data;
+        }
+      )
     }catch(e){
-      console.log("error",e)
+      e=>console.log("error getMovies",e)
     }
-    
+
+    console.log("[movies]",this.movies)
   }
 
-  async openModalMovie(movie?) {
+  async openModalMovie(movie?,i?) {
     const modal = await this.modal.create({
       component: ModalMovieComponent,
       cssClass: "movieModal",
@@ -45,12 +47,24 @@ export class MoviesComponent implements OnInit {
     await modal.present();
     let closeModal = await modal.onDidDismiss();
     if (closeModal.data) {
-      console.log("CERRADO DE MODAL ORDER", closeModal.data["movie"]);
+      console.log("cierre de modal", closeModal.data);
+      if(movie){
+        this.movies[i]=closeModal.data;
+      }else{
+        let length=this.movies.length;
+        this.movies[length]=closeModal.data;
+      }
     }
   }
 
-  deleteMovie(){
-    console.log("deleteMovie")
+  async deleteMovie(movie){
+    console.log("deleteMovie",movie,this.movies)
+    try{
+      await this.MovieService.deleteMovies(movie.id)
+      this.movies=this.movies.filter(item=>item.id!=movie.id)
+    }catch(e){
+      e=>console.log("error deleteMovie",e)
+    }
   }
 
 }

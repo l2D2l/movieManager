@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url:'http://localhost:5000/fire-moviemanager/us-central1'
+  url:'https://us-central1-fire-moviemanager.cloudfunctions.net'
 };
 
 /*

@@ -12,8 +12,6 @@ const routes: Routes = [
 ];
 
 
-// export const APP_ROUTES = RouterModule.forRoot( routes);
-
 @NgModule({
     imports: [
       RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

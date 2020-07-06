@@ -32,24 +32,21 @@ ion-content{
     }
     .containerInput{
         display: flex;
+        justify-content: space-around;
         div{
             width: 35%;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            margin-left: 16px;
+            margin-left: 20px;
         }
-        ion-input{
-            width: 65%;
-            margin: 0 16px!important;
+        ion-input {
+            padding-left: 16px!important;
         }
-        ion-select{
-            width: 65%;
-            margin: 0 16px!important;
-        }
-        ion-datetime{
-            width: 65%;
-            margin: 0 16px!important;
+        .input{
+            max-width: 45%;
+            min-width: 45%;
+            margin-right:20px!important;
         }
     }
     ion-item{

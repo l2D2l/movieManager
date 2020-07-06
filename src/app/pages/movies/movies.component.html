@@ -22,23 +22,26 @@
             </ion-col>
         </ion-row>
         <ion-row *ngFor="let movie of movies;let i=index">
-          <ion-col>
+          <ion-col size="2.4">
             {{i+1}}
           </ion-col>
-          <ion-col>
+          <ion-col size="2.4">
             {{movie.name}}
-          </ion-col>
-          <ion-col>
+          </ion-col >
+          <ion-col size="2.4">
             {{movie.publicationDate}}
           </ion-col>
-          <ion-col>
-            {{movie.state}}
+          <ion-col size="2.4" *ngIf="movie.state=='01'">
+            Activado
           </ion-col>
-          <ion-col size="2">
-              <ion-icon (click)="openModalMovie(movie)" name="pencil-outline"></ion-icon>
+          <ion-col size="2.4" *ngIf="movie.state=='02'">
+            Desactivado
           </ion-col>
-          <ion-col size="2">
-              <ion-icon (click)="deleteMovie()" name="trash-outline"></ion-icon>
+          <ion-col size="1.2">
+              <ion-icon (click)="openModalMovie(movie,i)" name="pencil-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1.2">
+              <ion-icon (click)="deleteMovie(movie)" name="trash-outline"></ion-icon>
           </ion-col>
         </ion-row>
     </ion-grid>

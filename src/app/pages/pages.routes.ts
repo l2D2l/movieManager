@@ -12,11 +12,8 @@ import { NgModule } from '@angular/core';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
-    },
+    { path: '', redirectTo: 'movies', pathMatch: 'full' },
+    { path: 'dashboard',component: DashboardComponent},
     { path: 'movies', component: MoviesComponent},
     { path: 'turns', component: TurnsComponent},
     { path: 'managers', component: ManagersComponent},
@@ -24,8 +21,6 @@ const routes: Routes = [
     { path: 'logout', component: LogoutComponent},
 ];
 
-
-// export const PAGES_ROUTES = RouterModule.forChild( routes );
 @NgModule({
     imports: [
       RouterModule.forChild(routes) 
