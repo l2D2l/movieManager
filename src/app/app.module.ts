@@ -2,10 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // Rutas
-import { APP_ROUTES } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 
 // Modulos
-// import { PagesModule } from './pages/pages.module';
 
 // temporal
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +21,7 @@ import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './components/components.module';
+import { RouteReuseStrategy } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { CoreModule } from './components/components.module';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     ServiceModule,
@@ -39,7 +39,9 @@ import { CoreModule } from './components/components.module';
     HttpClientModule,
     IonicModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

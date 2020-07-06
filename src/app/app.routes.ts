@@ -1,8 +1,9 @@
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { PagesComponent } from './pages/pages.component';
+import { NgModule } from '@angular/core';
 
-const appRoutes: Routes = [
+const routes: Routes = [
     {
         path: '',
         component: PagesComponent,
@@ -11,4 +12,12 @@ const appRoutes: Routes = [
 ];
 
 
-export const APP_ROUTES = RouterModule.forRoot( appRoutes, { useHash: true } );
+// export const APP_ROUTES = RouterModule.forRoot( routes);
+
+@NgModule({
+    imports: [
+      RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    ],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule {}

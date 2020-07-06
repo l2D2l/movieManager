@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -7,23 +7,29 @@ import { ProfileComponent } from './profile/profile.component';
 import { MoviesComponent } from './movies/movies.component';
 import { ManagersComponent } from './managers/managers.component';
 import { LogoutComponent } from './logout/logout.component';
+import { NgModule } from '@angular/core';
 
 
-// Guards
 
-const pagesRoutes: Routes = [
+const routes: Routes = [
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     {
         path: 'dashboard',
-        component: DashboardComponent,
-        data: { titulo: 'Dashboard' }
+        component: DashboardComponent
     },
-    { path: 'movies', component: MoviesComponent, data: { titulo: 'Ajustes de Tema' } },
-    { path: 'turns', component: TurnsComponent, data: { titulo: 'Ajustes de Tema' } },
-    { path: 'managers', component: ManagersComponent, data: { titulo: 'Ajustes de Tema' } },
-    { path: 'profile', component: ProfileComponent, data: { titulo: 'Ajustes de Tema' } },
-    { path: 'logout', component: LogoutComponent, data: { titulo: 'Ajustes de Tema' } },
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+    { path: 'movies', component: MoviesComponent},
+    { path: 'turns', component: TurnsComponent},
+    { path: 'managers', component: ManagersComponent},
+    { path: 'profile', component: ProfileComponent},
+    { path: 'logout', component: LogoutComponent},
 ];
 
 
-export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );
+// export const PAGES_ROUTES = RouterModule.forChild( routes );
+@NgModule({
+    imports: [
+      RouterModule.forChild(routes) 
+    ],
+    exports: [RouterModule]
+  })
+  export class PagesRoutingModule {}

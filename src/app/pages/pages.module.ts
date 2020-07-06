@@ -1,7 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import { PAGES_ROUTES } from './pages.routes';
-
+import { PagesRoutingModule } from './pages.routes';
 import { SharedModule } from '../shared/shared.module';
 
 import { FormsModule } from '@angular/forms';
@@ -31,7 +30,7 @@ import { IonicModule } from '@ionic/angular';
     imports: [
         CommonModule,
         SharedModule,
-        PAGES_ROUTES,
+        PagesRoutingModule,
         FormsModule,
         IonicModule,
     ]
