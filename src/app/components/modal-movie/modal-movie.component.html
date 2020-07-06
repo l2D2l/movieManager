@@ -1,0 +1,66 @@
+<ion-content>
+  <ion-title>Nueva Película</ion-title>
+  <form [formGroup]="addMovie">
+    
+    <div>
+      <div class="containerInput">
+        <div>Nombre de Película</div>
+        <ion-input class="input"
+          formControlName="name"
+        ></ion-input>
+      </div>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMovie.name">
+          <div
+            class="error-message"
+            *ngIf="showSignInValidationMessage(validation, 'name')">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    
+    <div>
+      <div class="containerInput">
+        <div>Fecha de Publicación</div>
+ 
+        <ion-datetime formControlName="publicationDate" displayFormat="MM DD YY" placeholder="Select Date"></ion-datetime>
+        
+      </div>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMovie.publicationDate">
+          <div
+            class="error-message"
+            *ngIf="showSignInValidationMessage(validation, 'publicationDate')">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+ 
+    <div>
+      <div class="containerInput">
+        <div>Estado</div>
+        <ion-select 
+          formControlName="state"
+          value="01"
+          interface="popover">
+          <ion-select-option value="01">Activado</ion-select-option>
+          <ion-select-option value="02">Desactivado</ion-select-option>
+        </ion-select>
+      </div>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validationMovie.state">
+          <div
+            class="error-message"
+            *ngIf="showSignInValidationMessage(validation, 'state')">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="containerButton">
+      <ion-button (click)="createMovie()" [disabled]="!addMovie.valid">Guardar</ion-button>
+    </div>
+  </form>
+</ion-content>

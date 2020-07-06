@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,17 +7,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  usuario: Usuario;
-
   constructor(
-    public router: Router
   ) { }
 
   ngOnInit() {
-  }
-
-  buscar( termino: string ) {
-    this.router.navigate(['/busqueda', termino ]);
   }
 
 }

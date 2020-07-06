@@ -3,34 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 
-import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
-import { CircleObjectComponent } from '../components/circle-object/circle-object.component';
+import { HeaderModule } from './header/header.module';
+import { SidebarModule } from './sidebar/sidebar.module';
 
 
 @NgModule({
     imports: [
         RouterModule,
         CommonModule,
-        // CircleObjectComponent
+        HeaderModule,
+        SidebarModule
     ],
     declarations: [
-        NopagefoundComponent,
-        HeaderComponent,
-        SidebarComponent,
-        NopagefoundComponent,
-        ModalUploadComponent,
-        CircleObjectComponent
     ],
     exports: [
-        NopagefoundComponent,
-        HeaderComponent,
-        SidebarComponent,
-        NopagefoundComponent,
-        ModalUploadComponent,
-        // CircleObjectComponent
+        HeaderModule,
+        SidebarModule
     ]
 })
 export class SharedModule { }

@@ -5,29 +5,23 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { Routes, RouterModule } from '@angular/router';
-import { CoreModule } from 'src/app/components/components.module';
 
-import { HeaderComponent } from './header.component';
-import { CircleObjectComponent } from '../../components/circle-object/circle-object.component';
+import { SidebarComponent } from './sidebar.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HeaderComponent
+    component: SidebarComponent
   }
 ];
 @NgModule({
-  entryComponents: [
-    CircleObjectComponent,
-  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    CoreModule,
   ],
-  declarations: [HeaderComponent],
-  exports:[HeaderComponent]
+  declarations: [SidebarComponent],
+  exports:[SidebarComponent]
 })
-export class HeaderModule {}
+export class SidebarModule {}

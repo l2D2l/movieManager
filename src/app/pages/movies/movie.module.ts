@@ -7,18 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { Routes, RouterModule } from '@angular/router';
 import { CoreModule } from 'src/app/components/components.module';
 
-import { HeaderComponent } from './header.component';
-import { CircleObjectComponent } from '../../components/circle-object/circle-object.component';
+import { MoviesComponent } from './movies.component';
+import { ModalMovieComponent } from 'src/app/components/modal-movie/modal-movie.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HeaderComponent
+    component: MoviesComponent
   }
 ];
 @NgModule({
   entryComponents: [
-    CircleObjectComponent,
+    ModalMovieComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +27,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CoreModule,
   ],
-  declarations: [HeaderComponent],
-  exports:[HeaderComponent]
+  declarations: [MoviesComponent],
+  exports:[MoviesComponent]
 })
-export class HeaderModule {}
+export class MoviesModule {}

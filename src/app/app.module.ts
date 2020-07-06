@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
@@ -12,21 +12,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Servicios
 import { ServiceModule } from './services/service.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
-
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 // Componentes
 import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
 import { SharedModule } from './shared/shared.module';
-// import { CircleObjectComponent } from './components/circle-object/circle-object.component';
+import { CoreModule } from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PagesComponent,
-    // CircleObjectComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +34,13 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     ServiceModule,
-    SharedModule
+    SharedModule,
+    CoreModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

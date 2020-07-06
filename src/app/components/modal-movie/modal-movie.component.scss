@@ -1,0 +1,58 @@
+.error-message {
+
+    &::before {
+        content: '❗️';
+    }
+
+    padding: 0 1rem;
+    color: red;
+    font-size: 0.8rem;
+    text-align: left;
+}
+ion-content{
+    ion-title{
+        padding: 20px 20px;
+        text-align: center;
+    }
+    .input{
+        border:1px solid #b8b8b8;
+        border-radius: 10px;
+    }
+    form{
+        height: calc(100% - 63px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .containerButton{
+            text-align: center;
+            ion-button{
+                width: 40%;
+            }
+        }
+    }
+    .containerInput{
+        display: flex;
+        div{
+            width: 35%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-left: 16px;
+        }
+        ion-input{
+            width: 65%;
+            margin: 0 16px!important;
+        }
+        ion-select{
+            width: 65%;
+            margin: 0 16px!important;
+        }
+        ion-datetime{
+            width: 65%;
+            margin: 0 16px!important;
+        }
+    }
+    ion-item{
+        display: flex;
+    }
+}

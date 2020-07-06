@@ -7,9 +7,10 @@
         padding-top: 70px;
         height: 100%;
         position: fixed;
-        width: 100%;
+        width: calc(100% - 240px);
         .container-fluid{
             padding: 25px 25px;
+            height: 100%;
         }
     }
 }
